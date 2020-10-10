@@ -6,8 +6,7 @@ import java.util.TreeMap;
 
 public class AddressBook {
 	private static HashSet<ContactPerson> contactPersonList = new HashSet();
-
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		addContactPerson();
 		searchContactByState("Jharkhand");
 		searchContactByCity("Jamshedpur");
