@@ -13,6 +13,8 @@ public class AddressBook {
 		searchContactByCity("Jamshedpur");
 		viewPersonsBycity("dhandbad");
 		viewPersonsByState("Bihar");
+		System.out.println(getNumber_OfContactPersonsByCity("Jamshedpur"));
+		System.out.println(getNumber_OfContactPersonsByCity("Jharkhand"));
 	}
 
 	/**
@@ -117,6 +119,33 @@ public class AddressBook {
 			showContactPerson(contactPerson);
 		}
 	}
+	/**
+	 * uc10
+	 * @param state
+	 * @return
+	 */
+	public static int getNumber_OfContactPersonsByState(String state) {
+		int countByState = 0;
+		for (ContactPerson contactPerson : contactPersonList) {
+			if (contactPerson.getState().equals(state))
+				countByState++;
+		}
+		return countByState;
+	}
 
+	/**
+	 * uc10
+	 * @param city
+	 * @return
+	 */
+	public static int getNumber_OfContactPersonsByCity(String city) {
+		int countByCity = 0;
+		for (ContactPerson contactPerson : contactPersonList) {
+			if (contactPerson.getCity().equals(city))
+				countByCity++;
+		}
+		return countByCity;
+
+	}
 
 }
