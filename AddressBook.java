@@ -1,6 +1,8 @@
 package com.bridgelabz.problem;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class AddressBook {
 	private static HashSet<ContactPerson> contactPersonList = new HashSet();
@@ -9,6 +11,8 @@ public class AddressBook {
 		addContactPerson();
 		searchContactByState("Jharkhand");
 		searchContactByCity("Jamshedpur");
+		viewPersonsBycity("dhandbad");
+		viewPersonsByState("Bihar");
 	}
 
 	/**
@@ -79,5 +83,40 @@ public class AddressBook {
 		System.out.println(contactPerson.getPhoneNumber());
 		System.out.println(contactPerson.getEmail());
 	}
+	/**
+	 * uc9
+	 * @param city
+	 */
+	public static void viewPersonsBycity(String city) {
+		Map<ContactPerson, String> mapPesonAndCity = new TreeMap<ContactPerson, String>();
+		for (ContactPerson contactPerson : contactPersonList) {
+			if (contactPerson.getCity().equals(city)) {
+				mapPesonAndCity.put(contactPerson, city);
+			}
+		}
+		for (Map.Entry m : map.entrySet()) {
+			ContactPerson contactPerson = (ContactPerson) m.getKey();
+			showContactPerson(contactPerson);
+
+		}
+	}
+
+	/**
+	 * uc9
+	 * @param state
+	 */
+	public static  void viewPersonsByState(String state) {
+		Map<ContactPerson, String> mapPesonAndState = new TreeMap<ContactPerson, String>();
+		for (ContactPerson contactPerson : contactPersonList) {
+			if (contactPerson.getState().equals(state)) {
+				mapPesonAndState.put(contactPerson, state);
+			}
+		}
+		for (Map.Entry m : map.entrySet()) {
+			ContactPerson contactPerson = (ContactPerson) m.getKey();
+			showContactPerson(contactPerson);
+		}
+	}
+
 
 }
