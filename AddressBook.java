@@ -6,15 +6,16 @@ public class AddressBook {
 	private static HashSet<ContactPerson> contactPersonList = new HashSet();
 
 	public static void main(String[] args) {
-		AddressBook addressBook = new AddressBook();
-		addressBook.addContactPerson();
+		addContactPerson();
+		searchContactByState("Jharkhand");
+		searchContactByCity("Jamshedpur");
 	}
 
 	/**
 	 * uc7
 	 * 
 	 */
-	public void addContactPerson() {
+	public static void addContactPerson() {
 		Scanner scannerObj = new Scanner(System.in);
 		System.out.println("Enter the First Name ");
 		String firstName = scannerObj.next();
@@ -44,6 +45,39 @@ public class AddressBook {
 		if (flag == 0)
 			contactPersonList.add(contactPerson);
 		scannerObj.close();
+	}
+	/**
+	 * uc8
+	 * @param city
+	 */
+	public static void  searchContactByCity(String city) {
+		for (ContactPerson contactPerson : contactPersonList) {
+			if (contactPerson.getCity().equals(city))
+				showContactPerson(contactPerson);
+
+		}
+	}
+	
+	/**
+	 * uc8
+	 * @param state
+	 */
+	public static void  searchContactByState(String state) {
+		for (ContactPerson contactPerson : contactPersonList) {
+			if (contactPerson.getCity().equals(state))
+				showContactPerson(contactPerson);
+
+		}
+	}
+	public static void showContactPerson(ContactPerson contactPerson) {
+		System.out.println(contactPerson.getFirstName());
+		System.out.println(contactPerson.getLastName());
+		System.out.println(contactPerson.getAddress());
+		System.out.println(contactPerson.getCity());
+		System.out.println(contactPerson.getState());
+		System.out.println(contactPerson.getZip());
+		System.out.println(contactPerson.getPhoneNumber());
+		System.out.println(contactPerson.getEmail());
 	}
 
 }
