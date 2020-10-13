@@ -57,6 +57,15 @@ public class HotelReservationSystem {
 					hotel.setTotalPrice(hotel.getTotalPrice() + hotel.getWeekendRateForRewardCustomer());
 				else
 					hotel.setTotalPrice(hotel.getTotalPrice() + hotel.getWeekdayRateForRewardCustomer());
+			} else {
+				if ((day1 == 1 || day1 == 7))
+					hotel.setTotalPrice(hotel.getTotalPrice() + hotel.getWeekendRateForRegularCustomer());
+				else
+					hotel.setTotalPrice(hotel.getTotalPrice() + hotel.getWeekdayRateForRegularCustomer());
+				if (day2 == 1 || day2 == 7)
+					hotel.setTotalPrice(hotel.getTotalPrice() + hotel.getWeekendRateForRegularCustomer());
+				else
+					hotel.setTotalPrice(hotel.getTotalPrice() + hotel.getWeekdayRateForRegularCustomer());
 			}
 		}
 		scannerObj.close();
